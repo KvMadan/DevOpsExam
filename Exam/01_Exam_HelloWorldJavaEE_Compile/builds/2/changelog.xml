@@ -1,0 +1,33 @@
+commit 4678d38607dd045e4843118757dd8e234fb35d15
+tree 2f85b0816ff82988df3d91950bbd2302268c9e3f
+parent f0bc97d6938a854ff7b7f5cf170872752e324ec3
+author Madan Kv <kmadan@live.in> 2018-04-13 14:13:20 +0530
+committer GitHub <noreply@github.com> 2018-04-13 14:13:20 +0530
+
+    Delete CalcMockTest.java
+
+
+
+:100644 000000 53dae0330ca9d1b026da9a446f07cb305dcce573 0000000000000000000000000000000000000000 D	src/test/java/com/qaagility/controller/CalcMockTest.java
+commit f0bc97d6938a854ff7b7f5cf170872752e324ec3
+tree 218b49721445c2e3969a5a7cc05349735b61ffd1
+parent c47d33d159f57449e78f73f13c803821e292de11
+author Madan Kv <kmadan@live.in> 2018-04-13 14:06:51 +0530
+committer GitHub <noreply@github.com> 2018-04-13 14:06:51 +0530
+
+    Update pom.xml
+
+
+
+:100755 100755 f483c4fd344c04287cc7c685e14eb967686366f2 077ad3011804e37b792debd5911b3560d7e6e7fa M	pom.xml
+commit c47d33d159f57449e78f73f13c803821e292de11
+tree 3ab20bf9bba603038bdd089eff8ee060db6708fd
+parent 3b96b412a864ad522fd661d1457a9163f7d9f88f
+author Madan Kv <kmadan@live.in> 2018-04-13 14:05:56 +0530
+committer GitHub <noreply@github.com> 2018-04-13 14:05:56 +0530
+
+    Update pom.xml
+
+
+
+:100755 100755 025dfa976f8039d7f3c404b73bca74ad9b3065c7 f483c4fd344c04287cc7c685e14eb967686366f2 M	pom.xml

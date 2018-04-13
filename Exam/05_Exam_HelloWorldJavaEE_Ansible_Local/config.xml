@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>artifactory_url=&quot;http://127.0.0.1:8081/artifactory&quot;
+
+repo=libs-snapshot-local    
+artifact=com/qaagility/javaee/HelloWorldJavaEE  
+name=$artifact   
+
+url=&quot;$artifactory_url/$repo/$artifact&quot;  ## genrate complete artifact url/path to where build resides.
+echo &quot;URL: &quot; + $url
+
+version=`curl -s $url/maven-metadata.xml | grep latest | sed &quot;s/.*&lt;latest&gt;\([^&lt;]*\)&lt;\/latest&gt;.*/\1/&quot;`
+build=`curl -s $url/$version/maven-metadata.xml | grep &apos;&lt;value&gt;&apos; | head -1 | sed &quot;s/.*&lt;value&gt;\([^&lt;]*\)&lt;\/value&gt;.*/\1/&quot;`
+BUILD_LATEST=&quot;$url/$version/HelloWorldJavaEE-$build.war&quot;   ## Storing latest build (war) value into &quot;BUILD_LATEST&quot; variable. 
+
+echo $BUILD_LATEST &gt; filename.txt</command>
+    </hudson.tasks.Shell>
+    <org.jenkinsci.plugins.ansible.AnsiblePlaybookBuilder plugin="ansible@0.6.2">
+      <playbook>deploy.yml</playbook>
+      <limit></limit>
+      <tags></tags>
+      <skippedTags></skippedTags>
+      <startAtTask></startAtTask>
+      <credentialsId></credentialsId>
+      <sudo>false</sudo>
+      <sudoUser></sudoUser>
+      <forks>5</forks>
+      <unbufferedOutput>true</unbufferedOutput>
+      <colorizedOutput>false</colorizedOutput>
+      <hostKeyChecking>false</hostKeyChecking>
+      <additionalParameters></additionalParameters>
+      <copyCredentialsInWorkspace>false</copyCredentialsInWorkspace>
+    </org.jenkinsci.plugins.ansible.AnsiblePlaybookBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

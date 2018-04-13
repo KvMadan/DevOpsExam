@@ -1,0 +1,51 @@
+Started by user [8mha:////4N17u3jJZrc8gV+WYUUJ5EPDiXx6jQ8fXLl9IJkXONcgAAAAmB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgYe/dLi1CL9lNSy/IJiALPgLiHBAAAA[0madmin
+Building in workspace /home/devops/.jenkins/workspace/06_Exam_HelloWorldJavaEE_Ansible_Docker
+[06_Exam_HelloWorldJavaEE_Ansible_Docker] $ /bin/sh -xe /tmp/jenkins7128821125654727483.sh
++ artifactory_url=http://127.0.0.1:8081/artifactory
++ repo=libs-snapshot-local
++ artifact=com/qaagility/javaee/HelloWorldJavaEE
++ name=com/qaagility/javaee/HelloWorldJavaEE
++ url=http://127.0.0.1:8081/artifactory/libs-snapshot-local/com/qaagility/javaee/HelloWorldJavaEE
++ echo URL:  + http://127.0.0.1:8081/artifactory/libs-snapshot-local/com/qaagility/javaee/HelloWorldJavaEE
+URL:  + http://127.0.0.1:8081/artifactory/libs-snapshot-local/com/qaagility/javaee/HelloWorldJavaEE
++ grep latest
++ curl -s http://127.0.0.1:8081/artifactory/libs-snapshot-local/com/qaagility/javaee/HelloWorldJavaEE/maven-metadata.xml
++ sed s/.*<latest>\([^<]*\)<\/latest>.*/\1/
++ version=0.0.1-SNAPSHOT
++ head -1
++ sed s/.*<value>\([^<]*\)<\/value>.*/\1/
++ grep <value>
++ curl -s http://127.0.0.1:8081/artifactory/libs-snapshot-local/com/qaagility/javaee/HelloWorldJavaEE/0.0.1-SNAPSHOT/maven-metadata.xml
++ build=0.0.1-20180413.035746-6
++ BUILD_LATEST=http://127.0.0.1:8081/artifactory/libs-snapshot-local/com/qaagility/javaee/HelloWorldJavaEE/0.0.1-SNAPSHOT/HelloWorldJavaEE-0.0.1-20180413.035746-6.war
++ echo http://127.0.0.1:8081/artifactory/libs-snapshot-local/com/qaagility/javaee/HelloWorldJavaEE/0.0.1-SNAPSHOT/HelloWorldJavaEE-0.0.1-20180413.035746-6.war
+[06_Exam_HelloWorldJavaEE_Ansible_Docker] $ ansible-playbook deploy.yml -f 5
+ [WARNING]: Could not match supplied host pattern, ignoring: all
+ [WARNING]: provided hosts list is empty, only localhost is available
+
+PLAY [localhost] ***************************************************************
+
+TASK [Gathering Facts] *********************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: TimeoutError: Timer expired after 10 seconds
+fatal: [localhost]: FAILED! => {"changed": false, "cmd": "/bin/lsblk --list --noheadings --paths --output NAME,UUID --exclude 2", "failed": true, "msg": "Timer expired after 10 seconds", "rc": 257}
+	to retry, use: --limit @/home/devops/.jenkins/workspace/06_Exam_HelloWorldJavaEE_Ansible_Docker/deploy.retry
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=0    changed=0    unreachable=0    failed=1   
+
+FATAL: command execution failed
+[8mha:////4GtiZNvtzJayZt16oBZvgdCf3Y6RCckEdHuMVu27RFokAAAAVx+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P08vOT+vOD8nVc8DzHWtSE4tKMnMz/PLL0mV3NWzufebKBsTA0NFEYMUmgZnCA1SyAABjCCFBQC2xNaiYAAAAA==[0mhudson.AbortException: Ansible playbook execution failed
+	at org.jenkinsci.plugins.ansible.AnsiblePlaybookBuilder.perform(AnsiblePlaybookBuilder.java:226)
+	at org.jenkinsci.plugins.ansible.AnsiblePlaybookBuilder.perform(AnsiblePlaybookBuilder.java:199)
+	at hudson.tasks.BuildStepCompatibilityLayer.perform(BuildStepCompatibilityLayer.java:81)
+	at hudson.tasks.BuildStepMonitor$1.perform(BuildStepMonitor.java:20)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.perform(AbstractBuild.java:736)
+	at hudson.model.Build$BuildExecution.build(Build.java:206)
+	at hudson.model.Build$BuildExecution.doRun(Build.java:163)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.run(AbstractBuild.java:496)
+	at hudson.model.Run.execute(Run.java:1724)
+	at hudson.model.FreeStyleBuild.run(FreeStyleBuild.java:43)
+	at hudson.model.ResourceController.execute(ResourceController.java:97)
+	at hudson.model.Executor.run(Executor.java:419)
+ERROR: Ansible playbook execution failed
+[8mha:////4GtiZNvtzJayZt16oBZvgdCf3Y6RCckEdHuMVu27RFokAAAAVx+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P08vOT+vOD8nVc8DzHWtSE4tKMnMz/PLL0mV3NWzufebKBsTA0NFEYMUmgZnCA1SyAABjCCFBQC2xNaiYAAAAA==[0mFinished: FAILURE
